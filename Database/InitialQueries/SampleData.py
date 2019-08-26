@@ -1,20 +1,21 @@
 import sqlite3
 import time
+from ..DB_Utilities import db_string 
 
 # *** IMPORTANT ***
 # Descriptions are typed in Spanish
+#
+#
 # *****************
 
-
-# Define data to set into Audit Information in Query
-today = time.strftime('%Y%m%d')
-dic_query = {
-    'user': 'Admin',
-    'today': today
-    }
-
 try:
-    conn = sqlite3.connect('Registers.db')
+    # Define data to set into Audit Information in Query
+    today = time.strftime('%Y%m%d')
+    dic_query = {
+        'user': 'Admin',
+        'today': today
+        }
+    conn = sqlite3.connect(db_string)
     c = conn.cursor()
 
     # Client
@@ -35,9 +36,9 @@ try:
     #Client_Telephone
     c.execute("""INSERT INTO Client_Telephone
                 VALUES
-                (1, 1),
-                (1, 2),
-                (2, 3)
+                (1, 1, 1),
+                (2, 1, 2),
+                (3, 2, 3)
     """, dic_query)
 
     #Product_Type
@@ -62,9 +63,8 @@ try:
                 VALUES
                 (1, 'Producto 1', :user, :today, 1, 2),
                 (2, 'Producto 2', :user, :today, 1, 1),
-                (3, 'Producto 3', :user, :today, 4, 2),
+                (3, 'Producto 3', :user, :today, 4, 2)
     """, dic_query)
-
 
     #Registry
     c.execute("""INSERT INTO Registry
@@ -78,9 +78,9 @@ try:
     conn.commit()
     print("Commit")
 
-except:
+except Exception as e:
+    print("Message Error: {0}".format(e))
     conn.rollback()
-    print("Rollback")
 
 finally:
     conn.close()

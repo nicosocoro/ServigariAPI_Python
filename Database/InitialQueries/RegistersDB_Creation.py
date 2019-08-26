@@ -1,6 +1,8 @@
 import sqlite3
+from Database.DB_Utilities import db_connection_string
+#from DB_Utilities import db_connection_string
 
-conn = sqlite3.connect('Registers.db')
+conn = sqlite3.connect(db_connection_string)
 
 c = conn.cursor()
 
@@ -18,7 +20,9 @@ c.executescript("""CREATE TABLE Client (
             CREATE TABLE Client_Telephone (
                 ID INTEGER PRIMARY KEY,
                 ID_Client INTEGER,
+                ID_Telephone INTEGER,
                 FOREIGN KEY (ID_Client) REFERENCES Client(ID)
+                FOREIGN KEY (ID_Telephone) REFERENCES Telephone(ID)
             );
 
             CREATE TABLE Telephone (

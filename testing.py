@@ -1,3 +1,6 @@
-import time
+import os
+print(os.getenv('Database'))
 
-print(time.strftime('%Y%m%d'))
+dirpath = os.getcwd()
+print("current directory is : " + dirpath)
+foldername = os.path.basename(dirpath)
