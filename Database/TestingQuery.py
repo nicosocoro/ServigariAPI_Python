@@ -5,21 +5,14 @@ from Database.DB_Utilities import db_connection_string
 
 #MAIN
 def Main():
-    try:
-        conn = sqlite3.connect(db_connection_string)
-        cur = conn.cursor()
-        
-        S = SQ.SelectQ(cur)
-        D = DQ.DeleteQ(cur)
+    try:        
+        S = SQ.SelectQ()
+        # D = DQ.DeleteQ()
         
         #D.delete_all()
-        S.select_all()
+        results = S.select_all()
+        print(results)
 
-        conn.commit()
 
     except Exception as e:
         print("Error message: ", e)
-        conn.rollback()
-
-    finally:
-        conn.close()
