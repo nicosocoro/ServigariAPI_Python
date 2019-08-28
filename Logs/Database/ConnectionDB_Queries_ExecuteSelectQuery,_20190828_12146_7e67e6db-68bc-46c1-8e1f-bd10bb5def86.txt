@@ -1,0 +1,5 @@
+File: ConnectionDB
+Class: Queries
+Method: ExecuteSelectQuery,
+Exception: no such table: Trademark
+Cause: None

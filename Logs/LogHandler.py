@@ -1,11 +1,20 @@
+# Generals
 import uuid
 import os
+
+# Specifics
 from Utilities.DateHandler import today_YYYYMMDD, hour_HHMMSS
 from Logs.Constants import log_folder
+from Utilities.GeneralConstants import absolute_path_project_folder
 
 # Tools to create a TXT Report
 #   Handler().__init__(...) receives pRelativePath which indicates the
 #   folder in Logs --> .../.../Logs/[pRelativePath]/[file_name].txt
+#
+# For develeloping purpose, the reports are created in the 'Logs/[specific_report_folder]'
+# project folder
+# Actually, they should be written in an extenernal server folder.
+
 
 class Handler():
     def __init__(self, pRelativePath, pFile, pClass, pMethod, pException):
@@ -20,7 +29,7 @@ class Handler():
         self.LogGenerator()
 
     def LogGenerator(self):
-        path = os.path.abspath(log_folder) + "\\" + self.relativePath #[...]\ServigariAPI_Python\Logs\[input path]
+        path = absolute_path_project_folder + "\\" + log_folder + "\\" + self.relativePath # [...]\ServigariAPI_Python\Logs\[input path]
         name = self.fileName + "_"
 
         #It's possible the exception doesn't come from a Class
