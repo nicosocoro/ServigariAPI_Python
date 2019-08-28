@@ -1,6 +1,6 @@
 import sqlite3
-import time
-from ..DB_Utilities import db_string 
+from Database.DB_Utilities import db_connection_string
+from Utilities.DateHandler import today_YYYYMMDD
 
 # *** IMPORTANT ***
 # Descriptions are typed in Spanish
@@ -10,12 +10,11 @@ from ..DB_Utilities import db_string
 
 try:
     # Define data to set into Audit Information in Query
-    today = time.strftime('%Y%m%d')
     dic_query = {
         'user': 'Admin',
-        'today': today
+        'today': today_YYYYMMDD
         }
-    conn = sqlite3.connect(db_string)
+    conn = sqlite3.connect(db_connection_string)
     c = conn.cursor()
 
     # Client
