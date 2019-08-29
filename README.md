@@ -13,7 +13,10 @@ The project is a small backend program were SQL queries are executed to retrieve
 
 At a business level, it manages income and expenses from a home appliance repair familiar commerce.
 
+At an architecture level, this project works as an API to handle all the transactions requested by the final user. 
+The UI will be developed in using ReactJS and will consume this Python API. 
 
+It's important to note that Python may not be the best option but, again, is only for personal improvements.
 
 --- First steps ---
 
