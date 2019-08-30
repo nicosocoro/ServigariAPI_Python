@@ -14,6 +14,15 @@ class Queries:
         self.cursor = None
         self.conn = None
 
+    def __HandleConnection(self, pSQLFunction):
+        def InternalFunction(args):
+            self.__OpenConnection()
+            pSQLFunction(args)
+            self.__CloseConnection()
+
+        return InternalFunction
+
+    # Connection 
     def __OpenConnection(self):
         try:
             self.conn = sqlite3.connect(self.connection_string)
@@ -23,10 +32,16 @@ class Queries:
             LH.Handler(log_folder, 'ConnectionDB', 'Queries', '__OpenConnection', e)   
             raise DE.ConnectionDB_Exception
 
-    def __ExecuteQueryCommon(self, pQuery):
-        self.__OpenConnection()
-        self.cursor.execute(pQuery)
+    def __CloseConnection(self):
+        self.cursor.close()
+        self.conn.close()
 
+    # Queries handle
+    @__HandleConnection # Decorate the function
+    def __ExecuteQueryCommon(self, pQuery):
+        # self.__OpenConnection()
+        self.cursor.execute(pQuery)
+    
     def ExecuteSelectQuery(self, pQuery):
         try:
             self.__ExecuteQueryCommon(pQuery)
