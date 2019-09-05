@@ -10,6 +10,7 @@ SetUp.Initial()
 
 from Database.TestingQuery import Main as tq_main
 
+
 # Main program
 def Main():
     try:
