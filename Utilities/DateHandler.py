@@ -21,3 +21,11 @@ hour_HHMM = str(h.hour) + str(h.minute )
 
 # HourMinutesSeconds - 112830
 hour_HHMMSS = str(h.hour) + str(h.minute) + str(h.second)
+
+
+# ---------- FUNCTIONS -----------------
+
+# Receives date in format YYYYMMDD
+# Returns integer
+def DifferenceBetweenTwoDates_YYYYMMDD(pEarlierDate, pOlderDate):
+    pass

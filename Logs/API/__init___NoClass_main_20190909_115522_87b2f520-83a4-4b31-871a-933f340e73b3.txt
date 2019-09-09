@@ -1,0 +1,5 @@
+File: __init__
+Class: 
+Method: main
+Exception: [Errno 2] No such file or directory: '/home/ubuntu16042/Documents/PythonProjects/ServigariAPI_Python/READdME.md'
+Cause: None

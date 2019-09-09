@@ -17,6 +17,7 @@ from Utilities.GeneralConstants import absolute_path_project_folder
 
 
 class Handler():
+    # If class and/or method are empty, pass as '' (empty string)
     def __init__(self, pRelativePath, pFile, pClass, pMethod, pException):
         self.relativePath = pRelativePath # path where the file will be save
         self.fileName = pFile
@@ -29,17 +30,17 @@ class Handler():
         self.LogGenerator()
 
     def LogGenerator(self):
-        path = absolute_path_project_folder + "\\" + log_folder + "\\" + self.relativePath # [...]\ServigariAPI_Python\Logs\[input path]
+        path = absolute_path_project_folder + "/" + log_folder + "/" + self.relativePath # [...]\ServigariAPI_Python\Logs\[input path]
         name = self.fileName + "_"
 
         #It's possible the exception doesn't come from a Class
-        name += '' if self.className is None else self.className + '_'
+        name += 'NoClass_' if self.className == '' else self.className + '_'
 
         #It's possible the exception doesn't come from a method
-        name += '' if self.methodName is None else self.methodName + '_'
+        name += 'NoMethod_' if self.methodName == ''  else self.methodName + '_'
 
         name += today_YYYYMMDD + "_" + hour_HHMMSS + "_" + self.uniqueID + ".txt"
-        final_path = os.path.join(path  + "\\", name) # Define absolute path
+        final_path = os.path.join(path  + "/", name) # Define absolute path
         
         e = Exception(self.exception)
         description = 'Exception: ' + str(e) + "\n"

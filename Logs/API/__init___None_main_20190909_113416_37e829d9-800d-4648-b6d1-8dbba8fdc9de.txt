@@ -1,0 +1,5 @@
+File: __init__
+Class: None
+Method: main
+Exception: [Errno 21] Is a directory: '/home/ubuntu16042/Documents/PythonProjects/ServigariAPI_Python'
+Cause: None
