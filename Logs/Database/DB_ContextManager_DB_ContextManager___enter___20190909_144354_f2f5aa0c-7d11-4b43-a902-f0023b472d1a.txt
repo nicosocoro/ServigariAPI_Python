@@ -1,5 +1,0 @@
-File: DB_ContextManager
-Class: DB_ContextManager
-Method: __enter__
-Exception: name 'conn' is not defined
-Cause: None
