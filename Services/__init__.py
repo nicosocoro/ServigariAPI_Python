@@ -20,15 +20,14 @@ def main():
     # highly recommended channel
 
     try:
-        return "Hello, worlds"
-        # path = os.path.dirname(app.root_path) + '/README.md'
-        # with open(path, 'r') as markdown_file:
+        path = os.path.dirname(app.root_path) + '/README.md'
+        with open(path, 'r') as markdown_file:
 
-        #     # Open README.md as readonly file
-        #     content = markdown_file.read()
+            # Open README.md as readonly file
+            content = markdown_file.read()
 
-        #     # Convert the content to HTML
-        #     return markdown.markdown(content)
+            # Convert the content to HTML
+            return markdown.markdown(content)
     except Exception as e:
         LH.Handler(log_API_folder, '__init__', '', 'main', e)
 
