@@ -1,5 +1,5 @@
 # API responses
-The structure of the response depends on the success or failure of the resquested
+The structure of the response depends on the success or failure of the resquest
 
 # Error
 **The error structure is always the same** 
@@ -34,7 +34,19 @@ client = {
     "Birthdate": 19960603,
     "UserRegistry": "admin",
     "DateRegistry": 20190901
-}
+},
+{
+    "id": 2,
+    "Name": "Juansito",
+    "Lastname": "Pérez", 
+    "Location": "Rosario",
+    "Adress": "AdressRosario",
+    "Email": "juansito@perez.com",
+    "Birthdate": 19800308,
+    "UserRegistry": "another_user",
+    "DateRegistry": 20190913
+},
+
 ```
 
 **Definition - Get specific client**

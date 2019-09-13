@@ -7,3 +7,4 @@ Here the errors are defined as **[ID_Number] - [Description]** and **ordered by 
 ## List 
 
 * 401 - The entity requested does not exist.
+* 404 - Resource not found

@@ -8,7 +8,16 @@ from Services.Utilities import GenericUtilities
 # *** Specifics *** 
 # Manage API requests
 from flask import Flask
+from flask_cors import CORS
+
 app = Flask(__name__)
+
+# For developing purpose, enables CORS for all requestes. No specifications are done.
+# Here are some links for more information about Flask-Cors
+# https://flask-cors.readthedocs.io/en/latest/
+# https://flask-cors.corydolphin.com/en/latest/api.html#extension 
+
+CORS(app) # enables CORS
 
 # Log register
 from Logs import LogHandler as LH
